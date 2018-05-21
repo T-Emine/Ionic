@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Nouvelle catégorie</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Libelle:</ion-label>
+      <ion-input [(ngModel)]="catAddInput" placeholder="libelle"></ion-input>
+  </ion-item>
+  <button ion-button full class="btn btn-primary btn-sm" (click)="addCat(catAddInput)"> Save</button>
+</ion-content>

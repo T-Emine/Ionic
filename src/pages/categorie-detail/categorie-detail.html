@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Détail de la catégorie</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div *ngIf="catInput">
+    <h2>{{ catInput.libelle | uppercase }} </h2>
+    <ion-item>
+      <ion-label>libelle:</ion-label>
+        <ion-input [(ngModel)]="catInput.libelle" placeholder="libelle"></ion-input>
+    </ion-item>
+    <button ion-button full class="btn btn-primary btn-sm" (click)="saveCat(catInput)">save</button>
+  </div>
+</ion-content>

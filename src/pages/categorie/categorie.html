@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Catégorie</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-segment color="primary">
+      <ion-segment-button value="lister" (ionSelect)="getCategorie()">
+          Lister
+      </ion-segment-button>
+    <ion-segment-button value="ajouter" (ionSelect)="gotoAddCat()">
+          Ajouter
+    </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="categorie">
+    <div *ngFor= "let c of cat">
+      <div class="list-group">
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+          <span class="badge"> {{c.libelle}} </span>
+          <button ion-button clear icon-only (click)="goToDetail(c.id)">
+              <ion-icon name='create' item-right is-active="false"></ion-icon>
+          </button>
+          <button ion-button color="danger" clear icon-only (click)="deleteCat(c)">
+            <ion-icon name='trash' item-right is-active="false"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

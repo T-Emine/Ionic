@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Modification d'une note</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div *ngIf="noteInput">
+    <h2>{{ noteInput.titre | uppercase }} </h2>
+    <div>  
+      <ion-item>
+      <ion-label>Titre :</ion-label>
+        <ion-input [(ngModel)]="noteInput.titre" placeholder="titre"></ion-input>
+      </ion-item>
+
+      <ion-item>
+      <ion-label>Contenu :</ion-label>
+        <ion-input [(ngModel)]="noteInput.contenu" placeholder="contenu"></ion-input>
+      </ion-item>
+      <br>
+
+      <ion-item>
+        <ion-label>Date :</ion-label>
+        <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="noteInput.date"></ion-datetime>
+      </ion-item>
+      <br>
+
+      <div class="form-group">
+      <ion-item>
+        <ion-label for="power"> Catégorie : </ion-label>
+        <ion-select class="form-control" id="power" required [(ngModel)]="noteInput.categorie_id"> 
+          <ion-option *ngFor="let lc of tabCat" [value]="lc.id" >{{lc.libelle}}</ion-option>
+        </ion-select>
+      </ion-item>
+      </div>
+      <br>  
+    </div>
+    <button ion-button full class="btn btn-primary btn-sm" (click)="saveNote(noteInput)">Save</button>
+  </div>
+
+</ion-content>

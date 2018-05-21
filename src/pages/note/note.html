@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Bloc-Note</ion-title>
+  </ion-navbar>
+  <ion-toolbar>
+    <ion-segment color="primary">
+      <ion-segment-button value="lister" (ionSelect)="getNote()">
+        Lister
+      </ion-segment-button>
+    <ion-segment-button value="ajouter" (ionSelect)="gotoAddNote()">
+        Ajouter
+    </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <div class="container">
+    <div *ngFor= "let n of note">
+      <div class="list-group">
+        <div class="list-group-item list-group-item-action flex-column align-items-start">
+          <h5 class="mb-1">{{n.titre}} </h5><br> 
+          <p class="mb-1">{{n.contenu}} </p><br> 
+          <small> {{n.categorie.libelle}} - </small> 
+          <small> {{n.date|date:'yyyy/MM/dd'}} </small><br> 
+          <button ion-button clear icon-only (click)="goToDetail(n)">
+            <ion-icon name='create' item-right is-active="false"></ion-icon>
+          </button>   
+          <button ion-button color="danger" clear icon-only (click)="deleteNote(n)">
+            <ion-icon name='trash' is-active="false"></ion-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
